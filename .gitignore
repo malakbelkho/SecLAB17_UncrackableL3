@@ -1,0 +1,45 @@
+# Tools
+apktool.jar
+apktool.bat
+
+# APK files
+*.apk
+*.idsig
+*.apks
+
+# Native libraries
+*.so
+*.so.*
+libfoo_patched.so
+libfoo-original.so
+libfoo_original.so
+
+# Apktool generated folders
+uncrackable3/
+uncrackable3_original/
+*/build/
+*/dist/
+
+# Ghidra project files
+*.gpr
+*.rep/
+*.lock
+*.loc
+*.loc~
+*.gbf
+
+# Backups / temp
+*.bak
+*.tmp
+*.log
+*~
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
