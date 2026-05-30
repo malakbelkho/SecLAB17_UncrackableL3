@@ -402,16 +402,17 @@ uncrackable3/lib/x86_64/libfoo.so
 L’APK est reconstruite, signée, puis réinstallée.
 
 <p align="center">
-  <img width="984" height="138" alt="rebuilding_patched_apk_after_ghidra" src="https://github.com/user-attachments/assets/4e83f915-23ff-44bc-a390-8da408c1c920" />
+  <img width="984" height="138" alt="rebuilding_patched_apk_after_ghidra" src="https://github.com/user-attachments/assets/4e83f915-23ff-44bc-a390-8da408c1c920" >
 
 </p>
 
 <p align="center">
-  <img src="screenshots/signing_patched_apk_after_ghidra.png" width="850">
+  <img width="1349" height="198" alt="signing_patched_apk_after_ghidra" src="https://github.com/user-attachments/assets/3502eac2-db65-473c-a40e-42c969eabf72" >
 </p>
 
 <p align="center">
-  <img width="1349" height="198" alt="signing_patched_apk_after_ghidra" src="https://github.com/user-attachments/assets/3502eac2-db65-473c-a40e-42c969eabf72" />
+  <img width="813" height="140" alt="reinstall_after_ghidra_patch" src="https://github.com/user-attachments/assets/b53f688a-f9ae-4c70-8ab1-b319716375d8" >
+
 
 </p>
 
