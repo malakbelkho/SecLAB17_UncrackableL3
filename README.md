@@ -96,7 +96,8 @@ adb install -r UnCrackable-Level3.apk
 L’application s’ouvre avec un champ permettant d’entrer une chaîne secrète.
 
 <p align="center">
-  <img src="screenshots/enter_secretstring.png" width="360">
+  <img width="360" src="https://github.com/user-attachments/assets/98153178-876a-41b9-872b-1b1b37ebc112" >
+
 </p>
 
 ---
@@ -112,7 +113,7 @@ Dans `MainActivity`, plusieurs éléments importants apparaissent.
 La méthode `verifyLibs()` vérifie les CRC des librairies natives et du fichier `classes.dex`.
 
 <p align="center">
-  <img src="screenshots/MainActivity_verifyLibs.png" width="850">
+  <img width="360" src="https://github.com/user-attachments/assets/cb74b4d4-edf0-49a3-910a-e9048da46c92" >
 </p>
 
 Cette méthode permet de détecter si l’APK ou ses librairies ont été modifiées.
@@ -131,7 +132,7 @@ Dans `onCreate()`, l’application vérifie plusieurs conditions :
 Si une anomalie est détectée, un message d’erreur est affiché.
 
 <p align="center">
-  <img src="screenshots/MainActivity_rooting-or-tampering-detected.png" width="850">
+  <img width="360" src="https://github.com/user-attachments/assets/4562e111-d0bd-49f5-a9b2-c6ec0d8402b3" >
 </p>
 
 ---
@@ -145,7 +146,7 @@ System.loadLibrary("foo");
 ```
 
 <p align="center">
-  <img src="screenshots/MainActivity_System-loadLibrary.png" width="850">
+  <img width="360" src="https://github.com/user-attachments/assets/921bb2e1-7e85-4294-b974-1b31f1e242fb">
 </p>
 
 Cela indique que la vérification réelle du secret est effectuée côté natif.
@@ -161,7 +162,7 @@ java -jar apktool.jar d -f UnCrackable-Level3.apk -o uncrackable3
 ```
 
 <p align="center">
-  <img src="screenshots/apktool_uncrackableL3.png" width="850">
+  <img width="360" src="https://github.com/user-attachments/assets/f9108482-ea0e-4a69-b029-0135994a5da8" >
 </p>
 
 Le dossier obtenu contient notamment :
@@ -188,7 +189,7 @@ uncrackable3/smali/sg/vantagepoint/uncrackable3/MainActivity.smali
 Le fichier `MainActivity.smali` est ouvert dans VS Code.
 
 <p align="center">
-  <img src="screenshots/MainActivity-smali_vscode.png" width="850">
+  <img width="360" src="https://github.com/user-attachments/assets/4d07ccb9-6fdc-4c5b-90e8-4b8d2dcf634e" >
 </p>
 
 Le bloc responsable de l’affichage du message suivant est identifié :
@@ -198,7 +199,7 @@ Rooting or tampering detected.
 ```
 
 <p align="center">
-  <img src="screenshots/find_Rooting-or-tampering-detected_MainActivity_vscode.png" width="850">
+  <img width="360" src="https://github.com/user-attachments/assets/29c1765c-f7ca-42c5-86a8-f54109ce5e24" >
 </p>
 
 Le code original appelle la méthode `showDialog()` lorsque root, debug ou tampering est détecté.
