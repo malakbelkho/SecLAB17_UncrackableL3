@@ -1,4 +1,4 @@
-<img width="911" height="681" alt="string_search_frida" src="https://github.com/user-attachments/assets/9f406a97-3ae3-4c49-88d7-bbecc0a3f79a" /># 🔐 LAB 17 — OWASP UnCrackable Android Level 3
+# 🔐 LAB 17 — OWASP UnCrackable Android Level 3
 
 ![Android](https://img.shields.io/badge/Android-Reverse%20Engineering-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Ghidra](https://img.shields.io/badge/Ghidra-Native%20Analysis-red?style=for-the-badge)
