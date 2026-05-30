@@ -1,4 +1,4 @@
-# 🔐 LAB 17 — OWASP UnCrackable Android Level 3
+<img width="911" height="681" alt="string_search_frida" src="https://github.com/user-attachments/assets/9f406a97-3ae3-4c49-88d7-bbecc0a3f79a" /># 🔐 LAB 17 — OWASP UnCrackable Android Level 3
 
 ![Android](https://img.shields.io/badge/Android-Reverse%20Engineering-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Ghidra](https://img.shields.io/badge/Ghidra-Native%20Analysis-red?style=for-the-badge)
@@ -96,7 +96,7 @@ adb install -r UnCrackable-Level3.apk
 L’application s’ouvre avec un champ permettant d’entrer une chaîne secrète.
 
 <p align="center">
-  <img src="screenshots/enter_secretstring.png" width="360">
+  <img width="1280" height="2856" alt="enter_secretstring" src="https://github.com/user-attachments/assets/3871f3ec-293f-4cf7-a20b-d6c7a2e71e68">
 </p>
 
 ---
@@ -112,7 +112,8 @@ Dans `MainActivity`, plusieurs éléments importants apparaissent.
 La méthode `verifyLibs()` vérifie les CRC des librairies natives et du fichier `classes.dex`.
 
 <p align="center">
-  <img src="screenshots/MainActivity_verifyLibs.png" width="850">
+  <img width="1365" height="724" alt="MainActivity_verifyLibs" src="https://github.com/user-attachments/assets/1e99367d-438b-4e56-9566-6b921db9cb86" />
+
 </p>
 
 Cette méthode permet de détecter si l’APK ou ses librairies ont été modifiées.
@@ -131,7 +132,8 @@ Dans `onCreate()`, l’application vérifie plusieurs conditions :
 Si une anomalie est détectée, un message d’erreur est affiché.
 
 <p align="center">
-  <img src="screenshots/MainActivity_rooting-or-tampering-detected.png" width="850">
+  <img width="1366" height="726" alt="MainActivity_rooting-or-tampering-detected" src="https://github.com/user-attachments/assets/21884eeb-4191-49d9-8c4d-2af685e6ab12" />
+
 </p>
 
 ---
@@ -145,7 +147,8 @@ System.loadLibrary("foo");
 ```
 
 <p align="center">
-  <img src="screenshots/MainActivity_System-loadLibrary.png" width="850">
+  <img width="1366" height="727" alt="MainActivity_System-loadLibrary" src="https://github.com/user-attachments/assets/80bbf2f9-228f-4883-85b3-5f842db61eb3" />
+
 </p>
 
 Cela indique que la vérification réelle du secret est effectuée côté natif.
@@ -161,7 +164,8 @@ java -jar apktool.jar d -f UnCrackable-Level3.apk -o uncrackable3
 ```
 
 <p align="center">
-  <img src="screenshots/apktool_uncrackableL3.png" width="850">
+  <img width="1208" height="236" alt="apktool_uncrackableL3" src="https://github.com/user-attachments/assets/1f267b78-34c9-4e60-b63c-605439b872ba" />
+
 </p>
 
 Le dossier obtenu contient notamment :
@@ -188,7 +192,8 @@ uncrackable3/smali/sg/vantagepoint/uncrackable3/MainActivity.smali
 Le fichier `MainActivity.smali` est ouvert dans VS Code.
 
 <p align="center">
-  <img src="screenshots/MainActivity-smali_vscode.png" width="850">
+  <img width="1352" height="731" alt="MainActivity-smali_vscode" src="https://github.com/user-attachments/assets/e2dd0b70-158c-4b65-978f-3c737a29f6cb" />
+
 </p>
 
 Le bloc responsable de l’affichage du message suivant est identifié :
@@ -198,7 +203,8 @@ Rooting or tampering detected.
 ```
 
 <p align="center">
-  <img src="screenshots/find_Rooting-or-tampering-detected_MainActivity_vscode.png" width="850">
+  <img width="977" height="581" alt="find_Rooting-or-tampering-detected_MainActivity_vscode" src="https://github.com/user-attachments/assets/fc458370-9b84-479e-b123-26337823ae13" />
+
 </p>
 
 Le code original appelle la méthode `showDialog()` lorsque root, debug ou tampering est détecté.
@@ -211,7 +217,8 @@ goto :cond_1
 ```
 
 <p align="center">
-  <img src="screenshots/code_modifcation_MainActivity-smali_vscode.png" width="850">
+ ![Uploading code_modifcation_MainActivity-smali_vscode.png…]()
+
 </p>
 
 Ce patch permet à l’application de continuer son exécution sans afficher le message d’erreur.
@@ -227,7 +234,8 @@ java -jar apktool.jar b uncrackable3 -o UnCrackable-Level3-patched.apk
 ```
 
 <p align="center">
-  <img src="screenshots/apk_rebuild.png" width="850">
+  <img width="1208" height="140" alt="apk_rebuild" src="https://github.com/user-attachments/assets/9b5fd12f-9636-4d8e-b386-5b5b7aafaf0a" />
+
 </p>
 
 L’APK est ensuite signée avec `apksigner`.
@@ -237,7 +245,8 @@ apksigner sign --ks "%USERPROFILE%\.android\debug.keystore" UnCrackable-Level3-p
 ```
 
 <p align="center">
-  <img src="screenshots/apk_sign.png" width="850">
+  <img width="1203" height="198" alt="apk_sign" src="https://github.com/user-attachments/assets/732e9259-f9e2-4451-88ce-5ff737ca8460" />
+
 </p>
 
 La signature est vérifiée :
@@ -247,7 +256,8 @@ apksigner verify --verbose UnCrackable-Level3-patched.apk
 ```
 
 <p align="center">
-  <img src="screenshots/apk_sign_verify.png" width="850">
+  <img width="1204" height="245" alt="apk_sign_verify" src="https://github.com/user-attachments/assets/3c6499b6-2a24-4aa7-8f4f-836d5b24e957" />
+
 </p>
 
 Puis l’application patchée est installée sur l’émulateur.
@@ -258,7 +268,8 @@ adb install -r UnCrackable-Level3-patched.apk
 ```
 
 <p align="center">
-  <img src="screenshots/patched_apk_reinstall.png" width="850">
+  <img width="1156" height="130" alt="patched_apk_reinstall" src="https://github.com/user-attachments/assets/ec3ca593-81d5-41ef-a7e6-4e54f1fe1899" />
+
 </p>
 
 ---
@@ -274,13 +285,15 @@ uncrackable3/lib/x86_64/libfoo.so
 La librairie est importée dans Ghidra.
 
 <p align="center">
-  <img src="screenshots/libfoo-so_import_ghidra.png" width="850">
+  <img width="1363" height="722" alt="libfoo-so_import_ghidra" src="https://github.com/user-attachments/assets/be7f8740-1ede-444b-a115-25ee769fe290" />
+
 </p>
 
 Après analyse automatique, Ghidra permet d’explorer les fonctions et les chaînes présentes dans la librairie.
 
 <p align="center">
-  <img src="screenshots/libfoo-so_analysis_ghidra.png" width="850">
+  
+
 </p>
 
 ---
@@ -296,15 +309,18 @@ xposed
 ```
 
 <p align="center">
-  <img src="screenshots/string_search_proc-self-maps.png" width="850">
+  <img width="905" height="675" alt="string_search_proc-self-maps" src="https://github.com/user-attachments/assets/4065086b-f6cd-4890-b3a7-b29ab4366373" />
+
 </p>
 
 <p align="center">
-  <img src="screenshots/string_search_frida.png" width="850">
+ <img width="911" height="681" alt="string_search_frida" src="https://github.com/user-attachments/assets/91aa2828-5a4c-43e8-8ef5-9b20c8616903" />
+
 </p>
 
 <p align="center">
-  <img src="screenshots/string_search_xposed.png" width="850">
+  <img width="907" height="680" alt="string_search_xposed" src="https://github.com/user-attachments/assets/cd1df204-a4a8-48e3-bf90-1ad1f0d5bf85" />
+
 </p>
 
 Les références croisées montrent que ces chaînes sont utilisées dans la fonction :
@@ -316,7 +332,8 @@ FUN_001037c0
 Cette fonction ouvre `/proc/self/maps`, recherche les chaînes `frida` et `xposed`, puis déclenche `goodbye()` si une anomalie est détectée.
 
 <p align="center">
-  <img src="screenshots/proc-self-maps_1streference-function.png" width="850">
+  <img width="1366" height="725" alt="proc-self-maps_1streference-function" src="https://github.com/user-attachments/assets/ea26598c-1d92-49c6-a27c-127a28431173" />
+
 </p>
 
 ---
@@ -338,13 +355,15 @@ RET
 ```
 
 <p align="center">
-  <img src="screenshots/001037c0_patch_instruction.png" width="850">
+  <img width="587" height="471" alt="001037c0_patch_instruction" src="https://github.com/user-attachments/assets/7e685b4d-6522-420b-af79-5f5da1df885a" />
+
 </p>
 
 Après patch :
 
 <p align="center">
-  <img src="screenshots/instruction_patched.png" width="850">
+  <img width="968" height="321" alt="instruction_patched" src="https://github.com/user-attachments/assets/24fa7a67-8a92-482c-831f-9f5cc587cff4" />
+
 </p>
 
 Ce patch force la fonction à retourner immédiatement, ce qui contourne :
@@ -365,7 +384,8 @@ Original File
 ```
 
 <p align="center">
-  <img src="screenshots/saving_patched-file_original-format.png" width="850">
+  <img width="1080" height="692" alt="saving_patched-file_original-format" src="https://github.com/user-attachments/assets/28402d70-24d8-441f-9853-bf2d388c4d55" />
+
 </p>
 
 La librairie patchée est ensuite replacée dans :
@@ -375,13 +395,15 @@ uncrackable3/lib/x86_64/libfoo.so
 ```
 
 <p align="center">
-  <img src="screenshots/moving_and_renaming_libfoo-so.png" width="850">
+  <img width="546" height="218" alt="moving_and_renaming_libfoo-so" src="https://github.com/user-attachments/assets/c66834c6-b1e1-4846-81f7-854db7322116" />
+
 </p>
 
 L’APK est reconstruite, signée, puis réinstallée.
 
 <p align="center">
-  <img src="screenshots/rebuilding_patched_apk_after_ghidra.png" width="850">
+  <img width="984" height="138" alt="rebuilding_patched_apk_after_ghidra" src="https://github.com/user-attachments/assets/4e83f915-23ff-44bc-a390-8da408c1c920" />
+
 </p>
 
 <p align="center">
@@ -389,7 +411,8 @@ L’APK est reconstruite, signée, puis réinstallée.
 </p>
 
 <p align="center">
-  <img src="screenshots/reinstall_after_ghidra_patch.png" width="850">
+  <img width="1349" height="198" alt="signing_patched_apk_after_ghidra" src="https://github.com/user-attachments/assets/3502eac2-db65-473c-a40e-42c969eabf72" />
+
 </p>
 
 ---
@@ -407,7 +430,8 @@ public boolean check_code(String str) {
 ```
 
 <p align="center">
-  <img src="screenshots/jdx_codecheck.png" width="850">
+  <img width="1334" height="477" alt="jdx_codecheck" src="https://github.com/user-attachments/assets/70c2733f-b4c0-434e-bfa6-c051038aa4ed" />
+
 </p>
 
 Dans Ghidra, la fonction correspondante est :
@@ -417,7 +441,8 @@ Java_sg_vantagepoint_uncrackable3_CodeCheck_bar
 ```
 
 <p align="center">
-  <img src="screenshots/symbol-tree_codecheck_ghidra.png" width="850">
+  <img width="1201" height="323" alt="symbol-tree_codecheck_ghidra" src="https://github.com/user-attachments/assets/b9bb2626-c5e0-466e-b214-d8cbfa5ab715" />
+
 </p>
 
 La fonction vérifie d’abord que l’entrée utilisateur possède une longueur de `0x18`.
@@ -447,13 +472,15 @@ secret[i] = DAT_00107040[i] XOR local_48[i]
 ```
 
 <p align="center">
-  <img src="screenshots/decompiled_function.png" width="850">
+  <img width="744" height="636" alt="decompiled_function" src="https://github.com/user-attachments/assets/74ab0af7-09c6-454e-9c70-d557efc4304b" />
+
 </p>
 
 La fonction `FUN_001012c0` génère la clé utilisée dans `local_48`.
 
 <p align="center">
-  <img src="screenshots/function_FUN_001012c0.png" width="850">
+  <img width="620" height="371" alt="function_FUN_001012c0" src="https://github.com/user-attachments/assets/b56410c9-0769-4dfb-8296-a31f9172f989" />
+
 </p>
 
 Les trois constantes utilisées représentent 24 octets au total :
@@ -496,7 +523,8 @@ print(secret.decode())
 ```
 
 <p align="center">
-  <img src="screenshots/xor_vscode.png" width="850">
+  <img width="1016" height="680" alt="xor_vscode" src="https://github.com/user-attachments/assets/bae15f50-a757-40ae-b421-c77d2ed60bb7" />
+
 </p>
 
 Le résultat obtenu est :
@@ -518,7 +546,8 @@ making owasp great again
 L’application confirme que le secret est correct.
 
 <p align="center">
-  <img src="screenshots/secret_found.png" width="420">
+  <img width="459" height="559" alt="secret_found" src="https://github.com/user-attachments/assets/e4f1dcb6-799c-4566-bb2b-a94d023e95e9" />
+
 </p>
 
 ---
